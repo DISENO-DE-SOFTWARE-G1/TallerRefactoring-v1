@@ -16,7 +16,6 @@ public class Player {
         this.wins = 0;
     }
 
-
     public Move playerChoice() {
         Move[] choices = {new Rock(), new Paper(), new Scissors()};
         int c = (int) (Math.random() * choices.length);

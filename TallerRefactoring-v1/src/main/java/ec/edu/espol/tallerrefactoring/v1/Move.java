@@ -10,4 +10,5 @@ package ec.edu.espol.tallerrefactoring.v1;
  */
 public interface Move {
      boolean winTo(Move move);
+     String getName();
 }

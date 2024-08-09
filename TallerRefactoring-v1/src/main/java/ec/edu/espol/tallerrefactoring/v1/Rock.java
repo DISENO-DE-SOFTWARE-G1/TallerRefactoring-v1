@@ -20,5 +20,4 @@ public class Rock implements Move  {
          return "Rock"; 
     }
     
-    
 }

@@ -10,7 +10,6 @@ package ec.edu.espol.tallerrefactoring.v1;
  */
 public class RPMGAME {
     
-   
     private static void determineWinnerRound(Move p1Choice, Move p2Choice, Player p1, Player p2) {
         if (p1Choice.winTo(p2Choice)) {
             p1.incrementWins();
@@ -23,15 +22,14 @@ public class RPMGAME {
         }
     }
 
-    
-    private static void determineWinnerGame(boolean gameWon, Player p1, Player p2) {
-        boolean finishedGame  = p1.getWins() >= 3 || p2.getWins() >= 3 ; 
+    private static boolean determineWinnerGame(Player p1, Player p2) {
+        boolean finishedGame = p1.getWins() >= 3 || p2.getWins() >= 3 ; 
         if (finishedGame) {
-            gameWon = true;
             System.out.println("GAME WON");
         }
+        return finishedGame;
     }
-    
+
     private static void roundGame(Player p1, Player p2){
         Move p1Choice = p1.playerChoice();
         System.out.println("Player 1: " + p1Choice.getName() + "\t Player 1 Total Wins: " + p1.getWins());
@@ -55,8 +53,10 @@ public class RPMGAME {
 
             roundGame(p1,p2);
             roundsPlayed++;
-            determineWinnerGame(gameWon,p1,p2);
-            
+            gameWon = determineWinnerGame(p1,p2);
+           
         } while (!gameWon);
     }
 }
+
+
