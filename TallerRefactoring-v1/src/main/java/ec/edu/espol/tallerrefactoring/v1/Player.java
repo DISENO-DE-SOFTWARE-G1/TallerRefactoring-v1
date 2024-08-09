@@ -11,20 +11,15 @@ package ec.edu.espol.tallerrefactoring.v1;
  */
 public class Player {
     private int wins;
-    private String name;
 
-    public Player(String name) {
-        this.name = name;
+    public Player() {
         this.wins = 0;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public String playChoice() {
-        String[] choices = {"rock", "paper", "scissors"};
-        int c = (int) (Math.random() * 3);
+    public Move playerChoice() {
+        Move[] choices = {new Rock(), new Paper(), new Scissors()};
+        int c = (int) (Math.random() * choices.length);
         return choices[c];
     }
 
